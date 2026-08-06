@@ -238,7 +238,7 @@
 
   <section id="about">
     <h2 class="reveal">A bit about me</h2>
-    <p class="section-sub reveal">I'm an intermediate Roblox scripter focused on building clean, modular systems; inventory, shop, currency, and whatever comes next. I like breaking problems down before writing a single line of code.</p>
+    <p class="section-sub reveal">I'm an intermediate Roblox scripter focused on building clean, modular systems — inventory, shop, currency, and whatever comes next. I like breaking problems down before writing a single line of code.</p>
     <div class="stats">
       <div class="stat reveal"><div class="num">1 yr</div><div class="label">Development experience</div></div>
       <div class="stat reveal"><div class="num">6 mo</div><div class="label">Coding experience</div></div>
@@ -250,9 +250,29 @@
 
 <footer id="contact">
   <h2 class="reveal" style="text-align:center">Let's talk</h2>
-  <p class="sub reveal">Have feedback or a project idea? Reach out.</p>
-  <a href="#" class="btn primary reveal">Message me</a>
+  <p class="sub reveal">Have feedback or a project idea? Reach out on Discord.</p>
+  <button id="discordPill" class="reveal" style="display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:10px;border:1px solid var(--border-strong);background:var(--surface);color:var(--text-primary);font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:15px;cursor:pointer;transition:border-color 0.2s,transform 0.2s">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.128 12.3 12.3 0 0 1-1.873.892.076.076 0 0 0-.04.106c.36.698.772 1.362 1.225 1.994a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.056c.5-5.177-.838-9.674-3.549-13.66a.06.06 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.418 2.157-2.418 1.21 0 2.176 1.094 2.157 2.418 0 1.334-.955 2.419-2.157 2.419zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.418 2.157-2.418 1.21 0 2.176 1.094 2.157 2.418 0 1.334-.946 2.419-2.157 2.419z"/></svg>
+    <span id="discordText">teddycyborg</span>
+  </button>
 </footer>
+
+<script>
+  const discordPill = document.getElementById('discordPill');
+  const discordText = document.getElementById('discordText');
+  discordPill.addEventListener('click', () => {
+    navigator.clipboard.writeText('teddycyborg').then(() => {
+      discordText.textContent = 'Copied to clipboard';
+      discordPill.style.borderColor = 'var(--accent)';
+      setTimeout(() => {
+        discordText.textContent = 'teddycyborg';
+        discordPill.style.borderColor = '';
+      }, 1800);
+    });
+  });
+  discordPill.addEventListener('mouseenter', () => { discordPill.style.transform = 'translateY(-2px)'; });
+  discordPill.addEventListener('mouseleave', () => { discordPill.style.transform = 'translateY(0)'; });
+</script>
 
 <script>
   const revealEls = document.querySelectorAll('.reveal');
